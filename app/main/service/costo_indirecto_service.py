@@ -4,7 +4,6 @@ from app.main.model.costo_indirecto import CostoIndirecto
 
 def create_costo_indirecto(data):
     costo_indirecto = CostoIndirecto(
-        numero=data['numero'],
         descripcion=data['descripcion'],
         proyecto_id=data['proyecto_id'],
         porcentaje=data['porcentaje'],

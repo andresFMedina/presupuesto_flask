@@ -1,4 +1,4 @@
-import datetime
+from datetime import datetime
 
 from app.main import db
 from app.main.model.proyecto import Proyecto
@@ -9,8 +9,8 @@ def save_new_project(data):
         nombre_Obra=data['nombre_Obra'],
         contratante=data['contratante'],
         proponente=data['proponente'],
-        fecha_Presentacion=['fecha_Presentacion'],
-        fecha_Modificacion=data['fecha_Modificacion'],
+        fecha_Presentacion=datetime.strptime(data['fecha_Presentacion'], '%Y-%m-%d').date(),
+        fecha_Modificacion=datetime.strptime(data['fecha_Modificacion'], '%Y-%m-%d').date(),
         comentarios=data['comentarios']
     )
 

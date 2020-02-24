@@ -6,13 +6,15 @@ from ..model import detalle
 class DetalleDTO():
     api = Namespace('detalle', description='Operaciones de los detalles')
     model = {
-        'id': fields.Integer(required=True),
+        'id': fields.Integer(),
         'analisis_unitario_id': fields.Integer(description='id del analisis unitario'),
         'item_id': fields.Integer(description='id del item'),
         'codigo': fields.String(required=True, description='codigo del detalle'),
         'descripcion': fields.String(required=True, description='descripcion del detalle'),
         'unidad': fields.String(required=True, description='unidad del detalle'),
+        'precio': fields.Float(required=True, description='precio del detalle'),
         'grupo': fields.String(description='grupo del detalle'),
+        'rendimiento':fields.Float(required=True,description='cantidad del detalle'),
         'subTotal': fields.Float(required=True, description='valor del detalle'),
         'detalleDe': fields.String(description='detalle de'),
         'desperdicio': fields.Float(required=True, description='desperdicio del detalle'),
@@ -48,7 +50,7 @@ class ItemDTO:
         'grupo': fields.String(description='grupo del item'),
         'cantidad': fields.Float(required=True, description='cantidad del item'),
         'aporte': fields.Float(required=True, description='aporte del item'),
-        'valorUnitario': fields.Float(required=True, description='valor del item'),
+        'valor_unitario': fields.Float(required=True, description='valor del item'),
         'detalles': fields.List(fields.Nested(DetalleDTO.detalle), description='detalles del item'),
         'numero_capitulo': fields.Integer(description='numero del item dentro del capitulo'),
         'capitulo_id': fields.Integer(description='id del capitulo'),
@@ -87,7 +89,7 @@ class ProyectoDTO:
         'nombre_Obra': fields.String(required=True, description='nombre de obra'),
         'contratante': fields.String(required=True, description='nombre del contratante'),
         'proponente': fields.String(required=True, description='nombre del proponente'),
-        'fecha_Presentancion': fields.Date(required=True, description='fecha de presentacion'),
+        'fecha_Presentacion': fields.Date(required=True, description='fecha de presentacion'),
         'fecha_Modificacion': fields.Date(required=True, description='fecha de ultima modificacion'),
         'comentarios': fields.String(required=True, description='comentarios del proyecto'),
     })
@@ -95,7 +97,7 @@ class ProyectoDTO:
 
 class RecursoBasicoDTO:
     api = Namespace('recurso_basico', description='Operaciones del Recurso Basico')
-    recurso_basico = api.model('proyecto', {
+    recurso_basico = api.model('recurso_basico', {
         'id': fields.Integer(),
         'codigo': fields.String(required=True, description='codigo del recurso'),
         'descripcion': fields.String(required=True, description='descripcion del recurso'),

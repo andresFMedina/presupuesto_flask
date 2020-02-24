@@ -1,5 +1,6 @@
 from app.main import db
 from app.main.model.recurso_basico import RecursoBasico
+from flask import jsonify
 
 
 def create_recurso_basico(data):
@@ -16,7 +17,7 @@ def create_recurso_basico(data):
     response_object = {
         'status': 'success',
         'message': 'Created',
-        'model': recurso_basico
+        'model': jsonify(recurso_basico)
     }
     return response_object
 

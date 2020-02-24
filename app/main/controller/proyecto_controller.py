@@ -18,6 +18,7 @@ class ProyectoList(Resource):
     @api.response(201, 'Proyecto creado')
     @api.doc('Crear Proyecto')
     @api.expect(_proyecto, validate=True)
+    @api.marshal_with(_proyecto, envelope='data')
     def post(self):
         data = request.json
         return save_new_project(data)

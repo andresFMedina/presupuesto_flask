@@ -13,6 +13,7 @@ def create_item(data):
         detalles=data['detalles'],
         valor_unitario=data['valor_unitario'],
         numero_capitulo=data['numero_capitulo'],
+        capitulo_id=data['capitulo_id'],
         costoManoObra=data['costoManoObra'],
         costoEquipo=data['costoEquipo'],
         costoMateriales=data['costoMateriales']
